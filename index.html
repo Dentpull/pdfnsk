@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ФОТОЦЕНТР — рекламно-производственная компания в Новосибирске</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F4EFE3;
+    --cream-2:#EFE9DA;
+    --paper:#FBF8F1;
+    --ink:#221D16;
+    --ink-soft:#5B564B;
+    --red:#8E1F2B;
+    --red-deep:#6E1620;
+    --red-bright:#C81E2E;
+    --line:#DED6C2;
+    --white:#FFFFFF;
+    --radius-lg:28px;
+    --radius-md:18px;
+    --radius-sm:10px;
+    --maxw:1240px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4,.display{
+    font-family:'Golos Text', sans-serif;
+    font-weight:800;
+    letter-spacing:-0.01em;
+    line-height:1.05;
+  }
+  a{color:inherit; text-decoration:none;}
+  img{display:block; max-width:100%;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 32px;}
+  button{font-family:inherit; cursor:pointer; border:none;}
+  ul{list-style:none;}
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(244,239,227,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .header-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 32px;
+    max-width:var(--maxw); margin:0 auto;
+  }
+  .logo{display:flex; align-items:center; gap:10px;}
+  .logo-mark{
+    width:38px; height:38px; border-radius:9px;
+    background:var(--red); color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    font-weight:800; font-size:15px; font-family:'Golos Text', sans-serif;
+  }
+  .logo-text{font-size:11px; line-height:1.25; color:var(--ink-soft); font-weight:500;}
+  .logo-text b{display:block; color:var(--ink); font-weight:700; font-size:12px;}
+  nav{display:flex; align-items:center; gap:34px;}
+  nav a{font-size:14.5px; font-weight:500; color:var(--ink); opacity:0.85; transition:opacity .15s;}
+  nav a:hover{opacity:1;}
+  .btn-primary{
+    background:var(--red); color:#fff;
+    padding:12px 22px; border-radius:100px;
+    font-size:14px; font-weight:600;
+    transition:background .15s;
+    white-space:nowrap;
+  }
+  .btn-primary:hover{background:var(--red-deep);}
+  .nav-toggle{display:none;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:76px 32px 40px;
+    max-width:var(--maxw); margin:0 auto;
+    overflow:visible;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start;
+    position:relative; z-index:2;
+  }
+  .hero h1{
+    font-size:clamp(34px, 4.6vw, 52px);
+    max-width:560px;
+  }
+  .hero p{
+    margin-top:22px; max-width:400px;
+    font-size:16px; line-height:1.55; color:var(--ink-soft);
+  }
+  .hero-visual{position:relative; min-height:340px;}
+  .swirl{
+    position:absolute; left:-30px; top:20px; width:230px; height:230px;
+    border-radius:50%;
+    background: repeating-radial-gradient(circle, transparent 0 6px, rgba(142,31,43,0.08) 7px 8px);
+    z-index:0;
+  }
+  .camera-block{
+    position:absolute; right:0; top:10px; width:280px; z-index:2;
+  }
+  .camera-svg{width:100%; height:auto; filter:drop-shadow(0 30px 40px rgba(142,31,43,0.35));}
+  .mini-mug{
+    position:absolute; left:60px; bottom:60px; width:96px; z-index:1;
+    filter:drop-shadow(0 16px 20px rgba(142,31,43,0.25));
+  }
+  .mini-phone{
+    position:absolute; right:30px; bottom:0; width:90px; z-index:1;
+    filter:drop-shadow(0 16px 20px rgba(0,0,0,0.15));
+  }
+
+  /* ---------- SPLIT BANNER ---------- */
+  .split-banner{
+    max-width:var(--maxw); margin:56px auto 0; padding:0 32px;
+    display:grid; grid-template-columns:1.1fr 1fr; gap:20px;
+  }
+  .panel{
+    border-radius:var(--radius-lg);
+    overflow:hidden;
+    position:relative;
+    min-height:360px;
+  }
+  .panel-dark{
+    background:linear-gradient(150deg, #241E1A 0%, #17130F 65%);
+    color:#fff; padding:36px;
+    display:flex; flex-direction:column; justify-content:space-between;
+  }
+  .panel-dark .tag{
+    display:inline-block; background:rgba(255,255,255,0.1);
+    color:#fff; font-size:12.5px; font-weight:600;
+    padding:7px 14px; border-radius:100px; width:fit-content;
+    margin-bottom:14px;
+  }
+  .panel-dark h3{font-size:26px; line-height:1.15; max-width:280px;}
+  .panel-dark .accent{color:#F2C879;}
+  .panel-dark .sub{font-size:13.5px; color:#C9C3B8; margin-top:14px; max-width:230px; line-height:1.5; font-weight:400; font-family:'Inter',sans-serif;}
+  .photo-fill{
+    position:absolute; right:0; bottom:0; width:56%; height:78%;
+    background:linear-gradient(160deg,#3a2f2a,#0e0c0a);
+    border-top-left-radius:var(--radius-lg);
+    opacity:0.9;
+  }
+  .photo-fill::after{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 35% 30%, rgba(255,210,150,0.25), transparent 55%);
+  }
+
+  .panel-red{
+    background:linear-gradient(150deg, var(--red-bright), var(--red-deep));
+    padding:32px;
+    display:flex; flex-direction:column; justify-content:space-between;
+    color:#fff;
+  }
+  .panel-red .top-copy{font-size:13px; color:#F4C6C9; max-width:210px; line-height:1.5; font-weight:500;}
+  .panel-red h3{font-size:24px; margin-top:auto; max-width:230px;}
+  .subcards{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:22px;}
+  .subcard{
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.16);
+    border-radius:16px; padding:16px;
+    min-height:110px;
+    display:flex; flex-direction:column; justify-content:space-between;
+  }
+  .subcard .icon{width:26px; height:26px; opacity:0.9;}
+  .subcard span{font-size:13.5px; font-weight:700; margin-top:auto;}
+
+  /* ---------- VALUES ---------- */
+  .values{
+    max-width:var(--maxw); margin:0 auto; padding:110px 32px 60px;
+    display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;
+  }
+  .values h2{font-size:clamp(26px,3vw,34px);}
+  .values .copy p{margin-top:16px; font-size:15px; line-height:1.6; color:var(--ink-soft);}
+  .icon-row{
+    max-width:var(--maxw); margin:0 auto; padding:0 32px 100px;
+    display:grid; grid-template-columns:repeat(4,1fr); gap:24px;
+  }
+  .icon-card{
+    background:var(--paper); border:1px solid var(--line);
+    border-radius:var(--radius-md);
+    padding:26px 20px;
+    display:flex; flex-direction:column; align-items:flex-start; gap:16px;
+  }
+  .icon-card .ic{
+    width:44px; height:44px; border-radius:12px;
+    background:var(--red); color:#fff;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .icon-card p{font-size:14.5px; font-weight:600; line-height:1.35;}
+
+  /* ---------- GALLERY ---------- */
+  .gallery{
+    max-width:var(--maxw); margin:0 auto; padding:0 32px 110px;
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    grid-auto-rows:160px;
+    gap:18px;
+  }
+  .gallery .cell{
+    border-radius:var(--radius-md);
+    overflow:hidden;
+    position:relative;
+    background-size:cover; background-position:center;
+    display:flex; align-items:flex-end;
+  }
+  .g1{grid-row:span 2; background:linear-gradient(135deg,#2653C4,#1B3E93);}
+  .g2{background:linear-gradient(135deg,#C81E2E,#8E1F2B);}
+  .g3{grid-row:span 2; background:#EDE7DA; border:1px solid var(--line);}
+  .g4{background:#fff; border:1px solid var(--line);}
+  .g5{background:#EFE4DC;}
+  .g6{background:#1B1B1E;}
+  .g7{background:var(--red-bright);}
+  .g8{background:#F1EAD9; border:1px solid var(--line);}
+  .cell-label{
+    padding:14px; font-size:12.5px; font-weight:700; color:#fff;
+    background:linear-gradient(to top, rgba(0,0,0,0.45), transparent);
+    width:100%;
+  }
+  .g3 .cell-label, .g4 .cell-label, .g5 .cell-label, .g8 .cell-label{color:var(--ink); background:none;}
+
+  /* ---------- STEPS ---------- */
+  .steps-section{
+    max-width:var(--maxw); margin:0 auto; padding:0 32px 110px;
+    display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;
+  }
+  .steps-section h2{font-size:clamp(26px,3vw,34px); margin-bottom:30px;}
+  .step{
+    border-top:1px solid var(--line);
+    padding:20px 0;
+    display:flex; align-items:center; justify-content:space-between;
+    cursor:pointer;
+  }
+  .step:last-child{border-bottom:1px solid var(--line);}
+  .step span{font-size:15.5px; font-weight:600;}
+  .step .num{color:var(--ink-soft); font-weight:500; margin-right:14px; font-family:'Golos Text',sans-serif;}
+  .step .chev{color:var(--ink-soft); font-size:18px;}
+  .step.active{color:var(--red);}
+  .step.active .num{color:var(--red);}
+
+  .steps-visual{
+    position:relative;
+    aspect-ratio:3/4;
+    border-radius:var(--radius-lg);
+    background:radial-gradient(circle at 60% 30%, var(--red-bright), var(--red-deep) 70%);
+    overflow:hidden;
+  }
+  .steps-visual::after{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 20% 80%, rgba(255,255,255,0.12), transparent 40%),
+      repeating-conic-gradient(from 0deg, rgba(255,255,255,0.05) 0deg 4deg, transparent 4deg 16deg);
+  }
+  .float-pill{
+    position:absolute; background:#fff; border-radius:100px;
+    padding:10px 16px; font-size:12.5px; font-weight:700;
+    display:flex; align-items:center; gap:8px;
+    box-shadow:0 10px 24px rgba(0,0,0,0.18);
+    z-index:3;
+  }
+  .float-pill .dot{width:20px; height:20px; border-radius:6px; background:var(--red); flex-shrink:0;}
+  .fp1{top:16%; left:8%;}
+  .fp2{top:44%; left:-6%;}
+  .fp3{bottom:12%; left:6%;}
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testi-section{
+    max-width:var(--maxw); margin:0 auto; padding:0 32px 110px;
+    display:grid; grid-template-columns:0.85fr 1.15fr; gap:26px; align-items:stretch;
+  }
+  .testi-left h2{font-size:clamp(24px,2.8vw,30px); margin-bottom:16px;}
+  .testi-left p{font-size:14.5px; color:var(--ink-soft); line-height:1.6; max-width:340px;}
+  .stat-row{display:flex; gap:34px; margin-top:30px;}
+  .stat b{display:block; font-family:'Golos Text',sans-serif; font-size:22px; font-weight:800;}
+  .stat span{font-size:12.5px; color:var(--ink-soft);}
+  .quote-card{
+    background:var(--paper); border:1px solid var(--line);
+    border-radius:var(--radius-lg);
+    padding:36px;
+    display:flex; flex-direction:column; justify-content:space-between;
+  }
+  .quote-mark{font-family:'Golos Text',sans-serif; font-size:46px; color:var(--red); line-height:1; font-weight:800;}
+  .quote-card p{font-size:19px; line-height:1.45; margin-top:14px; font-weight:500; max-width:480px;}
+  .quote-foot{display:flex; align-items:center; gap:12px; margin-top:26px;}
+  .quote-avatar{width:38px; height:38px; border-radius:50%; background:var(--line);}
+  .quote-foot b{font-size:13.5px; display:block;}
+  .quote-foot span{font-size:12px; color:var(--ink-soft);}
+  .testi-nav{display:flex; gap:10px; margin-top:24px;}
+  .testi-nav button{
+    width:38px; height:38px; border-radius:50%;
+    border:1px solid var(--line); background:var(--paper);
+    display:flex; align-items:center; justify-content:center;
+  }
+
+  /* ---------- SERVICES ---------- */
+  .services{max-width:var(--maxw); margin:0 auto; padding:0 32px 110px;}
+  .services-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:30px; flex-wrap:wrap; gap:20px;}
+  .services-head h2{font-size:clamp(26px,3vw,34px);}
+  .tabs{display:flex; gap:8px; flex-wrap:wrap;}
+  .tab{
+    padding:10px 18px; border-radius:100px; font-size:13.5px; font-weight:600;
+    background:var(--paper); border:1px solid var(--line); color:var(--ink-soft);
+  }
+  .tab.active{background:var(--red); color:#fff; border-color:var(--red);}
+  .service-grid{display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:20px;}
+  .service-card{
+    background:var(--paper); border:1px solid var(--line);
+    border-radius:var(--radius-lg); padding:26px;
+    display:flex; flex-direction:column; justify-content:space-between;
+    min-height:300px;
+  }
+  .service-thumb{
+    height:140px; border-radius:var(--radius-md);
+    background:linear-gradient(135deg,#EFE7D8,#E3D9C4);
+    margin-bottom:18px;
+    display:flex; align-items:center; justify-content:center;
+    color:var(--ink-soft); font-size:12px;
+  }
+  .service-card h4{font-size:19px;}
+  .service-meta{font-size:12.5px; color:var(--ink-soft); margin-top:10px; line-height:1.7;}
+  .service-foot{display:flex; align-items:center; justify-content:space-between; margin-top:18px;}
+  .price{font-family:'Golos Text',sans-serif; font-weight:800; font-size:17px;}
+  .link-btn{font-size:13px; font-weight:600; color:var(--red);}
+
+  /* ---------- CTA ---------- */
+  .cta-band{
+    max-width:var(--maxw); margin:0 auto 110px; padding:0 32px;
+  }
+  .cta-inner{
+    border:1px solid var(--line); border-radius:var(--radius-lg);
+    background:var(--paper);
+    padding:44px 48px;
+    display:flex; align-items:center; justify-content:space-between; gap:30px;
+  }
+  .cta-inner h3{font-size:clamp(24px,3vw,30px); max-width:320px;}
+  .cta-inner p{font-size:14px; color:var(--ink-soft); margin-top:10px; max-width:280px; line-height:1.5;}
+  .cta-arrow{
+    width:76px; height:76px; border-radius:20px; background:var(--red);
+    display:flex; align-items:center; justify-content:center; color:#fff;
+    font-size:26px; flex-shrink:0;
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq{max-width:840px; margin:0 auto; padding:0 32px 130px;}
+  .faq h2{text-align:center; font-size:clamp(24px,3vw,30px); margin-bottom:36px;}
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-q{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 4px; cursor:pointer; font-size:15px; font-weight:600;
+  }
+  .faq-q .chev{color:var(--ink-soft); transition:transform .2s; font-size:18px;}
+  .faq-item.open .chev{transform:rotate(45deg); color:var(--red);}
+  .faq-a{
+    max-height:0; overflow:hidden; transition:max-height .25s ease;
+    font-size:14px; color:var(--ink-soft); line-height:1.6;
+  }
+  .faq-item.open .faq-a{max-height:200px; padding-bottom:20px;}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--red-deep); color:#fff;
+    border-radius:56px 56px 0 0;
+    padding:70px 32px 30px;
+  }
+  .footer-inner{max-width:var(--maxw); margin:0 auto;}
+  .footer-word{
+    font-family:'Golos Text',sans-serif; font-weight:900;
+    font-size:clamp(48px, 9vw, 110px);
+    letter-spacing:-0.02em;
+    line-height:0.9;
+    color:#fff;
+  }
+  .footer-cols{
+    display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr;
+    gap:30px; margin-top:56px;
+    padding-bottom:44px; border-bottom:1px solid rgba(255,255,255,0.18);
+  }
+  .footer-about p{font-size:13.5px; color:rgba(255,255,255,0.75); line-height:1.6; max-width:260px;}
+  .footer-about .mail{display:block; margin-top:18px; font-size:13px; font-weight:600;}
+  .footer-col h5{font-size:12.5px; text-transform:uppercase; letter-spacing:0.04em; color:rgba(255,255,255,0.55); margin-bottom:14px; font-weight:600;}
+  .footer-col li{font-size:13.5px; margin-bottom:10px; color:rgba(255,255,255,0.85);}
+  .footer-bottom{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    padding-top:24px; flex-wrap:wrap; gap:18px;
+  }
+  .footer-bottom .addr{font-size:13px; color:rgba(255,255,255,0.75); line-height:1.6;}
+  .footer-bottom .hours{font-size:13px; color:rgba(255,255,255,0.75); text-align:right; line-height:1.6;}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:980px){
+    nav{display:none;}
+    .nav-toggle{display:block; width:40px; height:40px; border-radius:10px; background:var(--paper); border:1px solid var(--line); font-size:18px;}
+    .hero-grid{grid-template-columns:1fr; gap:60px;}
+    .hero-visual{min-height:260px;}
+    .split-banner{grid-template-columns:1fr;}
+    .values{grid-template-columns:1fr; gap:24px; padding-top:70px;}
+    .icon-row{grid-template-columns:1fr 1fr;}
+    .gallery{grid-template-columns:1fr 1fr;}
+    .steps-section{grid-template-columns:1fr;}
+    .steps-visual{max-width:340px; margin:0 auto;}
+    .testi-section{grid-template-columns:1fr;}
+    .service-grid{grid-template-columns:1fr;}
+    .cta-inner{flex-direction:column; align-items:flex-start; text-align:left;}
+    .footer-cols{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:520px){
+    .wrap, .hero, .split-banner, .values, .icon-row, .gallery, .steps-section, .testi-section, .services, .cta-band, .faq, footer{padding-left:20px; padding-right:20px;}
+    .icon-row{grid-template-columns:1fr;}
+    .footer-cols{grid-template-columns:1fr;}
+    .header-inner{padding:14px 20px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <div class="logo-mark">ПДФ</div>
+      <div class="logo-text">Печать<b>Фото · Документы</b></div>
+    </div>
+    <nav>
+      <a href="#about">О нас</a>
+      <a href="#services">Услуги</a>
+      <a href="#requirements">Требования к макету</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#approve">Согласовать макет</a>
+    </nav>
+    <button class="btn-primary">Оставить заявку</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-grid">
+    <div>
+      <h1>Рекламно-производственная компания в Новосибирске.</h1>
+      <p>Комплексное решение рекламных задач: сувенирная продукция, рекламная полиграфия, наружная реклама, дизайн.</p>
+    </div>
+    <div class="hero-visual">
+      <div class="swirl"></div>
+      <svg class="camera-block camera-svg" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="camGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#E23C3C"/>
+            <stop offset="100%" stop-color="#8E1F2B"/>
+          </linearGradient>
+        </defs>
+        <rect x="10" y="35" width="180" height="90" rx="18" fill="url(#camGrad)"/>
+        <rect x="30" y="15" width="60" height="26" rx="8" fill="#B32833"/>
+        <circle cx="100" cy="80" r="42" fill="#5C0F17"/>
+        <circle cx="100" cy="80" r="34" fill="#3A0A10"/>
+        <circle cx="100" cy="80" r="22" fill="#1F0507"/>
+        <circle cx="112" cy="68" r="6" fill="rgba(255,255,255,0.5)"/>
+        <circle cx="160" cy="50" r="8" fill="#F2C879"/>
+      </svg>
+      <svg class="mini-mug" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect x="15" y="25" width="55" height="55" rx="8" fill="#8E1F2B"/>
+        <path d="M70 40 h15 a12 12 0 0 1 0 24 h-15" fill="none" stroke="#8E1F2B" stroke-width="7"/>
+      </svg>
+      <svg class="mini-phone" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="15" width="60" height="70" rx="10" fill="#221D16"/>
+        <rect x="27" y="24" width="46" height="44" fill="#F4EFE3"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="split-banner">
+  <div class="panel panel-dark">
+    <div>
+      <span class="tag">Больше</span>
+      <h3>не нужно стоять <span class="accent">в очереди</span></h3>
+      <p class="sub">Отправьте документы заранее и оплатите онлайн — заберите заказ без ожидания.</p>
+    </div>
+    <div class="photo-fill"></div>
+  </div>
+  <div class="panel panel-red">
+    <p class="top-copy">Нужен дизайн для рекламной продукции вашего бизнеса? Доверьтесь профессионалам.</p>
+    <h3>Сделаем дизайн для вас</h3>
+    <div class="subcards">
+      <div class="subcard">
+        <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M12 3v18M3 12h18" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+        <span>За 5 минут</span>
+      </div>
+      <div class="subcard">
+        <svg class="icon" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3" stroke="#fff" stroke-width="2"/></svg>
+        <span>Фотопечать</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="values" id="about">
+  <h2>Мы заботимся о результате так же, как вы — о своём проекте.</h2>
+  <div class="copy">
+    <p>Фотокопировальный и полиграфический центр в Новосибирске, где профессиональная печать доступна каждому.</p>
+    <p>Мы объединили фотокопировальный сервис и профессиональную типографию, чтобы вы получили идеальный результат — от оперативной копии до сложной полиграфии. Работаем быстро, аккуратно и всегда в срок. Нам важны детали, потому что именно они делают печать по-настоящему качественной.</p>
+  </div>
+</section>
+
+<div class="icon-row">
+  <div class="icon-card">
+    <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" fill="#fff"/></svg></div>
+    <p>Высокая скорость работы</p>
+  </div>
+  <div class="icon-card">
+    <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="2"/><path d="M9 12l2 2 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div>
+    <p>Честные цены и прозрачные сроки</p>
+  </div>
+  <div class="icon-card">
+    <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s-8-5-8-11a8 8 0 0116 0c0 6-8 11-8 11z" stroke="#fff" stroke-width="2"/></svg></div>
+    <p>15 лет работаем для вас</p>
+  </div>
+  <div class="icon-card">
+    <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="3" fill="#fff"/></svg></div>
+    <p>Печать любой сложности</p>
+  </div>
+</div>
+
+<div class="gallery">
+  <div class="cell g1"><div class="cell-label">Значки</div></div>
+  <div class="cell g2"><div class="cell-label">Love / полиграфия</div></div>
+  <div class="cell g3"><div class="cell-label">Кружки на заказ</div></div>
+  <div class="cell g4"><div class="cell-label">Фотопечать</div></div>
+  <div class="cell g5"><div class="cell-label">Худи с принтом</div></div>
+  <div class="cell g6"><div class="cell-label">Бейджи</div></div>
+  <div class="cell g7"><div class="cell-label">Бирки Migri Store</div></div>
+  <div class="cell g8"><div class="cell-label">Сумки-шопперы</div></div>
+</div>
+
+<section class="steps-section">
+  <div>
+    <h2>Всего 4 шага до готового заказа</h2>
+    <div class="step active">
+      <div><span class="num">01</span><span>Отправляете заказ (WhatsApp — самый быстрый способ)</span></div>
+      <span class="chev">＋</span>
+    </div>
+    <div class="step">
+      <div><span class="num">02</span><span>Согласовываем детали и стоимость</span></div>
+      <span class="chev">＋</span>
+    </div>
+    <div class="step">
+      <div><span class="num">03</span><span>Оплата и запуск в работу</span></div>
+      <span class="chev">＋</span>
+    </div>
+    <div class="step">
+      <div><span class="num">04</span><span>Контроль качества и получение заказа</span></div>
+      <span class="chev">＋</span>
+    </div>
+  </div>
+  <div class="steps-visual">
+    <div class="float-pill fp1"><span class="dot"></span>Напечатать фото</div>
+    <div class="float-pill fp2"><span class="dot"></span>Заказать дизайн</div>
+    <div class="float-pill fp3"><span class="dot"></span>Распечатать документ</div>
+  </div>
+</section>
+
+<section class="testi-section" id="reviews">
+  <div class="testi-left">
+    <h2>Что наши клиенты говорят о нас</h2>
+    <p>Удобный заказ, быстрые сроки и высокая точность — об этом чаще всего говорят наши клиенты. Мы работаем так, чтобы к нам хотелось вернуться.</p>
+    <div class="stat-row">
+      <div class="stat"><b>5,000+</b><span>Довольных клиентов</span></div>
+      <div class="stat"><b>4,5</b><span>Рейтинг</span></div>
+    </div>
+    <div class="testi-nav">
+      <button>‹</button>
+      <button>›</button>
+    </div>
+  </div>
+  <div class="quote-card">
+    <div>
+      <div class="quote-mark">“</div>
+      <p>Распечатывали пару страниц, один раз с ламинированием, все быстро чётко и недорого. Из плюсов — отсутствие очередей, пару человек не в счёт.</p>
+    </div>
+    <div class="quote-foot">
+      <div class="quote-avatar"></div>
+      <div>
+        <b>Алексей Нойлер</b>
+        <span>6 июня 2025</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="services-head">
+    <h2>Наши услуги</h2>
+    <div class="tabs">
+      <button class="tab active">Сувенирная продукция</button>
+      <button class="tab">Рекламная продукция</button>
+      <button class="tab">Печать фотографий</button>
+      <button class="tab">Другие услуги</button>
+    </div>
+  </div>
+  <div class="service-grid">
+    <div class="service-card">
+      <div>
+        <div class="service-thumb">фото кружки</div>
+        <h4>Кружки</h4>
+        <div class="service-meta">
+          Материал: керамика<br>
+          Объём: 300 мл.<br>
+          Тип переноса: сублимация<br>
+          Место нанесения: по центру, сбоку (слева или справа)
+        </div>
+      </div>
+      <div class="service-foot">
+        <span class="price">450 ₽</span>
+        <span class="link-btn">Подробнее →</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <div>
+        <div class="service-thumb">фото подушки</div>
+        <h4>Подушки</h4>
+      </div>
+      <div class="service-foot">
+        <span class="link-btn">Подробнее →</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <div>
+        <div class="service-thumb">фото футболки</div>
+        <h4>Футболки</h4>
+      </div>
+      <div class="service-foot">
+        <span class="link-btn">Подробнее →</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band" id="approve">
+  <div class="cta-inner">
+    <div>
+      <h3>Оформить заказ в WhatsApp</h3>
+      <p>Напишите на WA — подробно опишите ваш запрос: фото, документы отправляйте как вложение — документом.</p>
+    </div>
+    <div class="cta-arrow">↗</div>
+  </div>
+</div>
+
+<div class="faq" id="requirements">
+  <h2>Часто задаваемые вопросы</h2>
+  <div class="faq-item">
+    <div class="faq-q"><span>В чём отличие между срочной и лабораторной печатью фотографий?</span><span class="chev">＋</span></div>
+    <div class="faq-a">Срочная печать выполняется на месте за считаные минуты, лабораторная — на профессиональном фотооборудовании с более высоким качеством цветопередачи и занимает от 1 дня.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span>Делается ли ретушь фотографий на документы?</span><span class="chev">＋</span></div>
+    <div class="faq-a">Да, базовая ретушь входит в стоимость: удаление бликов, выравнивание тона кожи и фона по требованиям к документу.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span>Как быстро делается сувенирная продукция?</span><span class="chev">＋</span></div>
+    <div class="faq-a">Стандартные тиражи — от 1 до 3 рабочих дней в зависимости от сложности макета и типа изделия.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span>Есть ли у вас скидки и на что они распространяются?</span><span class="chev">＋</span></div>
+    <div class="faq-a">Скидки действуют на крупные тиражи сувенирной и рекламной продукции, а также для постоянных клиентов.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q"><span>Сохраняются ли у вас фото на документы, если я был у вас 5 лет назад?</span><span class="chev">＋</span></div>
+    <div class="faq-a">Мы храним архив снимков ограниченное время, поэтому для точного ответа уточните дату и вид документа у оператора.</div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-word">ФОТОЦЕНТР</div>
+    <div class="footer-cols">
+      <div class="footer-about">
+        <p>Фотопечать, полиграфия и дизайн. Выполняем работу профессионально и в срок.</p>
+        <span class="mail">imagecool.nsk@gmail.com</span>
+      </div>
+      <div class="footer-col">
+        <h5>Услуги</h5>
+        <ul>
+          <li>Брошюровка</li>
+          <li>Ламинирование</li>
+          <li>Реставрация</li>
+          <li>Фотопечать</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Фото на документы</h5>
+        <ul>
+          <li>Ретушь</li>
+          <li>Грин карта</li>
+          <li>Загран паспорт</li>
+          <li>Паспорт РФ</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Печать и копии</h5>
+        <ul>
+          <li>Копирование</li>
+          <li>Цветная печать</li>
+          <li>Сканирование</li>
+          <li>Обычная печать</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="addr">г. Новосибирск, ул. Ленина 24<br>Тел. +7 953 899-39-12</div>
+      <div class="hours">Режим работы<br>Пн-Пт: 09:00–18:00<br>Сб-Вс: 10:00–17:00</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item=>{
+    item.querySelector('.faq-q').addEventListener('click', ()=>{
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+      if(!wasOpen) item.classList.add('open');
+    });
+  });
+  // Steps active state
+  document.querySelectorAll('.step').forEach(step=>{
+    step.addEventListener('click', ()=>{
+      document.querySelectorAll('.step').forEach(s=>s.classList.remove('active'));
+      step.classList.add('active');
+    });
+  });
+  // Service tabs
+  document.querySelectorAll('.tab').forEach(tab=>{
+    tab.addEventListener('click', ()=>{
+      document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+      tab.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
